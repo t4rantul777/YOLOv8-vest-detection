@@ -1,0 +1,11 @@
+
+path: C:\Users\User\Desktop\construction-ppe-lite\datasets\construction-ppe
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: helmet
+  1: vest
+  2: person
+  3: no_helmet

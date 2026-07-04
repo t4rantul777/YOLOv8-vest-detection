@@ -1,0 +1,9 @@
+ultralytics>=8.0.0    # YOLO - основная библиотека для детекции
+streamlit>=1.29.0     # Веб-интерфейс
+torch>=2.0.0          # PyTorch - бэкенд для YOLO
+opencv-python>=4.8.0  # Работа с изображениями
+numpy>=1.24.0         # Математические операции
+pandas>=2.0.0         # Работа с таблицами (results.csv)
+matplotlib>=3.7.0     # Графики (для plot_metrics.py)
+pyyaml>=6.0           # Работа с YAML конфигами
+pillow>=10.0.0        # Работа с изображениями в Streamlit

@@ -1,0 +1,42 @@
+# Construction PPE Lite Configuration
+project:
+  name: "Construction PPE Lite"
+  version: "1.0.0"
+
+# Dataset settings
+dataset:
+  name: "construction-ppe"
+  url: "https://github.com/ultralytics/assets/releases/download/v0.0.0/construction-ppe.zip"
+  # Keep only: helmet, vest, person, no_helmet
+  keep_classes:
+    0: "helmet"
+    2: "vest"
+    6: "person"
+    7: "no_helmet"
+
+# Training settings
+training:
+  model: "yolov8n.pt"  # nano for speed, use 'yolov8s.pt' for better accuracy
+  epochs: 50
+  batch_size: 16
+  img_size: 640
+  patience: 15
+  device: "cuda"  # or "cpu"
+
+# Inference settings
+inference:
+  conf_threshold: 0.12
+  iou_threshold: 0.1
+  # IoU thresholds for PPE assignment
+  iou_on_body: 0.1      # >0.3 = worn on body
+  iou_in_hands: 0.05    # 0.05-0.3 = in hands
+  hand_zone_ratio: 0.4  # lower 40% of body = hand zone
+  model_path: "runs/detect/runs/train/ppe_lite/weights/best.pt"
+  distance_threshold: 50
+
+# Safety rules
+safety:
+  grace_frames: 30      # frames to put on vest (1 sec at 30 fps)
+  required_ppe:
+    - "helmet"
+    - "vest"
